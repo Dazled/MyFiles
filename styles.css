@@ -118,7 +118,7 @@ body {
 }
 
 .images img {
-    width: 50px; /* Adjust size as needed */
+    width: 100px; /* Adjust size as needed */
     height: auto;
     position: absolute;
     transition: transform 1s ease; /* Smooth transition for positioning */
