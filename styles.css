@@ -47,7 +47,7 @@ body {
     top: 0;
     left: 0;
     border-width: 100px 150px 0 150px; /* Adjust border widths */
-    border-color: blue transparent transparent transparent transparent transparent blue transparent; /* Color for the top flap */
+    border-color: blue transparent transparent transparent; /* Color for the top flap */
     transform-origin: top;
 }
 
