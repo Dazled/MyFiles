@@ -1,186 +1,144 @@
+/* styles.css */
 body {
-    background: #000a2e;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-img {
-    vertical-align: middle;
-    border-style: none;
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: blue;
+    perspective: 1000px; /* Allows 3D transformations */
 }
 
-#starsLeft {
+.envelope.open .flaps {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .content {
+    display: block;
+}
+
+.envelope .flaps {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Preserve 3D space for children */
+    transition: transform 0.5s ease; /* Animation for opening/closing */
+}
+
+.flap {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    background: blue;
+    transition: transform 0.5s ease;
+}
+
+.top-flap {
+    top: 0;
     left: 0;
-    top: 5%;
-    opacity: 0.7;
-    z-index: 2;
+    border-width: 0 150px 100px 150px;
+    border-color: transparent transparent blue transparent;
+    transform-origin: top;
 }
 
-#starsRight {
-    position: absolute;
-    z-index: 2;
-    right: 0;
-    top: 5%;
-    opacity: 0.7;
-}
-
-#mainDiv {
-    color: #ffffffef;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    z-index: 8;
-    align-items: center;
-    justify-content: center;
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-#logo {
-    height: 35vh;
-    vertical-align: middle;
-    border-style: none;
-    box-sizing: border-box;
-}
-@media screen and (max-width: 720px) {
-    #mainDiv {
-        color: #ffffffef;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        position: absolute;
-        z-index: 8;
-        align-items: center;
-        justify-content: center;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    #logo {
-        height: 125px;
-        vertical-align: middle;
-        position: relative;
-    }
-}
-#MainText {
-    color: #ffffffef;
-    text-align: center !important;
-}
-
-h1 {
-    font-size: 2.25rem;
-    font-weight: 500;
-    line-height: 1.2;
-    margin-top: 0;
-}
-
-@keyframes Animation {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 0%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
-
-.clouds {
-    position: absolute;
+.bottom-flap {
     bottom: 0;
-    width: 99%;
+    left: 0;
+    border-width: 100px 150px 0 150px;
+    border-color: blue transparent transparent transparent;
+    transform-origin: bottom;
 }
 
-#cloudLeftTop {
-    position: absolute;
-    top: -10%;
-    left: -20px;
-    z-index: 1;
+.envelope.open .top-flap {
+    transform: rotateX(-180deg);
 }
 
-#cloudBottomRight {
-    position: absolute;
-    bottom: 10%;
-    right: -20px;
-    z-index: 1;
+.envelope.open .bottom-flap {
+    transform: rotateX(180deg);
 }
 
-.night {
+.envelope-body {
     position: relative;
     width: 100%;
     height: 100%;
-    transform: rotateZ(45deg);
+    transform-style: preserve-3d;
 }
 
-.shooting_star {
+.dot {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 100px;
-    height: 1px;
-    background: linear-gradient(
-        -45deg,
-        rgba(95, 145, 255, 1),
-        rgba(0, 0, 255, 0)
-    );
-    border-radius: 999px;
-    filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
-    animation: tail 3000ms ease-in-out, shooting 3000ms ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-@keyframes tail {
-    0% {
-        width: 0;
-    }
-
-    30% {
-        width: 100px;
-    }
-
-    100% {
-        width: 0;
-    }
-}
-
-@keyframes shooting {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(300px);
-    }
-}
-
-.video {
-    height: 100%;
-    width: 100%;
-    border: 0;
-}
-
-.video-container {
-    position: relative;
-    display: inline-block; /* Or 'block' depending on layout */
-}
-
-.video-container img {
-    display: block; /* Remove bottom space/margin under the image */
-    width: 100%; /* Adjust based on your needs */
-    height: auto;
-}
-
-.play-button {
-    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
-    width: 64px; /* Adjust size of the play button */
-    height: 64px; /* Adjust size of the play button */
+    z-index: 2;
+}
+
+.content {
+    display: none;
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: auto;
+    transform: translateZ(1px); /* Ensure content is not affected by rotation */
+}
+
+/* Show content when envelope is open */
+.envelope.open .content {
+    display: block;
+}
+
+.images {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+}
+
+.envelope.open .images {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2); /* Adjust scale and position as needed */
+}
+
+.images img {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+    margin: 10px;
+    transition: transform 0.5s ease;
+}
+
+/* Add animation for spreading images */
+.envelope.open .images img {
+    transform: translateY(-50px) rotate(15deg); /* Adjust spread effect as needed */
 }
