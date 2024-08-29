@@ -1,14 +1,10 @@
-function onPageLoaded() {
-    // Write your javascript code here
-    console.log("page loaded");
-}
-
+// script.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Listen for clicks on elements with the class 'play-button'
-    document.querySelectorAll('.play-button').forEach(function(button) {
-        button.addEventListener('click', function() {
-            // When a play button is clicked, simulate a click on the <a> tag within the same .video-container
-            this.parentNode.querySelector('a').click();
-        });
+    const envelope = document.querySelector('.envelope');
+    const dot = document.querySelector('.dot');
+
+    dot.addEventListener('click', function() {
+        envelope.classList.toggle('open');
     });
 });
+
