@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Envelope</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope">
+            <div class="flaps">
+                <div class="top-flap flap"></div>
+                <div class="bottom-flap flap"></div>
+            </div>
+            <div class="envelope-body">
+                <div class="dot"></div>
+                <div class="content">
+                    <h1>Letter Title</h1>
+                    <p>Hewo ayang, i'm really really sorry to you, i never really meant to hurt you. I always love you, always. This 2 days while we are not talking, I've thought about it, and i think i will really go insane if you leave me, I love, and need you so much. Can we go back as we are? As a couple? Can we talk again? please text me.
+</p>
+                </div>
+                <div class="images">
+                    <img src="WhatsApp Image 2024-08-30 at 4.51.26 AM.jpeg.jpg" alt="Image 1">
+                    <img src="WhatsApp Image 2024-08-30 at 4.51.51 AM.jpeg" alt="Image 2">
+                    <img src="WIN_20240826_19_44_13_Pro.jpg" alt="Image 3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
