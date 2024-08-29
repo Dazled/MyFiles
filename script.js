@@ -10,10 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
             scatterImages();
         }
     });
-function scatterImages() {
+ function scatterImages() {
         images.forEach(img => {
-            const x = Math.random() * 300 - 150; // Random value between -150 and 150
-            const y = Math.random() * 300 - 150; // Random value between -150 and 150
+            // Adjust scatter range to be outside the envelope's bounds
+            const x = (Math.random() - 0.5) * 400; // Random value between -200 and 200
+            const y = (Math.random() - 0.5) * 400; // Random value between -200 and 200
             const rotate = Math.random() * 360; // Random rotation between 0 and 360 degrees
 
             img.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg)`;
