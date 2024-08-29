@@ -45,7 +45,7 @@ body {
     top: 0;
     left: 0;
     border-width: 0 150px 100px 150px; /* Adjust border widths */
-    border-color: transparent transparent blue transparent; /* Color for the bottom flap */
+    border-color: transparent transparent blue transparent; /* Color for the top flap */
     transform-origin: top;
 }
 
@@ -53,16 +53,16 @@ body {
     bottom: 0;
     left: 0;
     border-width: 100px 150px 0 150px; /* Adjust border widths */
-    border-color: blue transparent transparent transparent; /* Color for the top flap */
+    border-color: blue transparent transparent transparent; /* Color for the bottom flap */
     transform-origin: bottom;
 }
 
 .envelope.open .top-flap {
-    transform: rotateX(-180deg);
+    transform: rotateX(180deg);
 }
 
 .envelope.open .bottom-flap {
-    transform: rotateX(180deg);
+    transform: rotateX(-180deg);
 }
 
 .envelope-body {
@@ -88,7 +88,7 @@ body {
 .content {
     display: none;
     background-color: white;
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -136,3 +136,4 @@ body {
 .envelope.open .images img {
     transform: translateY(-50px) rotate(15deg); /* Adjust spread effect as needed */
 }
+
