@@ -1,0 +1,144 @@
+/* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: blue;
+    perspective: 1000px; /* Allows 3D transformations */
+}
+
+.envelope.open .flaps {
+    transform: rotateX(180deg);
+}
+
+.envelope .flaps {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Preserve 3D space for children */
+    transition: transform 0.5s ease; /* Animation for opening/closing */
+    z-index: 1; /* Ensure flaps are below the content */
+}
+
+.flap {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.top-flap {
+    top: 0;
+    left: 0;
+    border-width: 100px 150px 0 150px; /* Adjust border widths */
+    border-color: blue transparent transparent transparent transparent transparent blue transparent; /* Color for the top flap */
+    transform-origin: top;
+}
+
+.bottom-flap {
+    bottom: 0;
+    left: 0;
+    border-width: 0 150px 100px 150px; /* Adjust border widths */
+    border-color: transparent transparent blue transparent; /* Color for the bottom flap */
+    transform-origin: bottom;
+}
+
+.envelope.open .top-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .bottom-flap {
+    transform: rotateX(0deg); /* No rotation needed */
+}
+
+.envelope-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.dot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 2; /* Ensure dot is above the flaps */
+    border: 3px solid black; /* Add border to make dot stand out */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Add shadow to make dot stand out */
+}
+
+.content {
+    display: none;
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    z-index: 3; /* Ensure content is above the flaps and dot */
+    overflow: auto;
+    transform: translateZ(1px); /* Ensure content is not affected by rotation */
+}
+
+/* Show content when envelope is open */
+.envelope.open .content {
+    display: block;
+}
+
+.images {
+    position: absolute;
+    top: 50%;
+    right: -200px; /* Position to the right of the envelope */
+    transform: translateY(-50%); /* Center vertically */
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 4; /* Ensure images are above the envelope */
+}
+
+.envelope.open .images {
+    opacity: 1;
+    right: 20px; /* Adjust this to control the distance from the envelope */
+    transform: translateY(-50%) scale(1); /* Adjust scaling effect as needed */
+}
+
+.images img {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+    margin: 10px;
+    transition: transform 0.5s ease;
+}
+
+/* Add animation for spreading images */
+.envelope.open .images img {
+    transform: translateY(-50px) rotate(15deg); /* Adjust spread effect as needed */
+}
