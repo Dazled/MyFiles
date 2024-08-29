@@ -6,5 +6,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     dot.addEventListener('click', function() {
         envelope.classList.toggle('open');
-        }
+        });
     });
