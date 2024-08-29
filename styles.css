@@ -118,7 +118,7 @@ body {
     transform: translate(
         calc(300px * (random() - 0.5)),
         calc(300px * (random() - 0.5))
-    ) rotate(calc(360deg * random()));
+    );
 }
 
 /* Helper function for random values in calc */
