@@ -86,6 +86,7 @@ body {
     cursor: pointer;
     z-index: 2; /* Ensure dot is above the flaps */
     border: 2px solid black; /* Optional: Add border to make dot stand out */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow to make dot stand out */
 }
 
 .content {
