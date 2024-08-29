@@ -26,10 +26,6 @@ body {
     transform: rotateX(180deg);
 }
 
-.envelope.open .content {
-    display: block;
-}
-
 .envelope .flaps {
     position: absolute;
     width: 100%;
@@ -43,23 +39,21 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    background: blue;
-    transition: transform 0.5s ease;
 }
 
 .top-flap {
     top: 0;
     left: 0;
-    border-width: 0 150px 100px 150px;
-    border-color: transparent transparent blue transparent;
+    border-width: 0 150px 100px 150px; /* Adjust border widths */
+    border-color: transparent transparent blue transparent; /* Color for the bottom flap */
     transform-origin: top;
 }
 
 .bottom-flap {
     bottom: 0;
     left: 0;
-    border-width: 100px 150px 0 150px;
-    border-color: blue transparent transparent transparent;
+    border-width: 100px 150px 0 150px; /* Adjust border widths */
+    border-color: blue transparent transparent transparent; /* Color for the top flap */
     transform-origin: bottom;
 }
 
@@ -94,7 +88,7 @@ body {
 .content {
     display: none;
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     position: absolute;
     width: 100%;
     height: 100%;
