@@ -46,7 +46,7 @@ body {
 .top-flap {
     top: 0;
     left: 0;
-    border-width: 100px 150px 0 150px; /* Adjust border widths */
+    border-width: 0 150px 100px 150px; /* Adjust border widths */
     border-color: transparent transparent blue transparent; /* Color for the top flap */
     transform-origin: top;
 }
@@ -54,7 +54,7 @@ body {
 .bottom-flap {
     bottom: 0;
     left: 0;
-    border-width: 0 150px 100px 150px; /* Adjust border widths */
+    border-width: 100px 150px 0 150px; /* Adjust border widths */
     border-color: blue transparent transparent transparent; /* Color for the bottom flap */
     transform-origin: bottom;
 }
@@ -76,7 +76,7 @@ body {
 
 .dot {
     position: absolute;
-    width: 10px;
+    width: 20px;
     height: 20px;
     background-color: white;
     border-radius: 50%;
@@ -110,7 +110,7 @@ body {
 .images {
     position: absolute;
     top: 50%;
-    right: -150px; /* Position to the right of the envelope */
+    right: -200px; /* Position to the right of the envelope */
     transform: translateY(-50%); /* Center vertically */
     width: auto;
     height: auto;
@@ -119,13 +119,14 @@ body {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
     z-index: 4; /* Ensure images are above the envelope */
 }
 
 .envelope.open .images {
     opacity: 1;
     right: 20px; /* Adjust this to control the distance from the envelope */
+    transform: translateY(-50%) scale(1); /* Adjust scaling effect as needed */
 }
 
 .images img {
