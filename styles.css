@@ -120,7 +120,8 @@ body {
 
 /* Hide images initially */
 .envelope .images img {
-    opacity: 0;
+    opacity: 0
+    transform: translate(0, 0);;
 }
 
 .envelope.open .images img {
