@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         targetX = -envelopeWidth  - imgWidth ;
                         targetY = -envelopeHeight  - imgHeight ;
                         break;
+                    case 1: // Move to top-right corner
+                        targetX = envelopeWidth  - imgWidth ;
+                        targetY = -envelopeHeight  - imgHeight ;
+                        break;
                     case 2: // Move to bottom-left corner
                         targetX = -envelopeWidth  - imgWidth ;
                         targetY = envelopeHeight  - imgHeight ;
