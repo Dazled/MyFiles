@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const randomRotation = Math.random() * 360; // Random rotation angle
 
                 // Apply transformation to move images
-                img.style.transform = `translate(${targetX}px, ${targetY}px) rotate(${randomRotation}deg)`;
+                img.style.transform = `translate(${targetX}px, ${targetY}px))`;
             });
         }
     });
