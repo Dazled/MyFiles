@@ -25,20 +25,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 switch(index) {
                     case 0: // Move to top-left corner
-                        targetX = -envelopeWidth / 2 - imgWidth / 2;
-                        targetY = -envelopeHeight / 2 - imgHeight / 2;
+                        targetX = -envelopeWidth  - imgWidth ;
+                        targetY = -envelopeHeight  - imgHeight ;
                         break;
                     case 1: // Move to top-right corner
-                        targetX = envelopeWidth / 2 - imgWidth / 2;
-                        targetY = -envelopeHeight / 2 - imgHeight / 2;
+                        targetX = envelopeWidth  - imgWidth ;
+                        targetY = -envelopeHeight  - imgHeight ;
                         break;
                     case 2: // Move to bottom-left corner
-                        targetX = -envelopeWidth / 2 - imgWidth / 2;
-                        targetY = envelopeHeight / 2 - imgHeight / 2;
+                        targetX = -envelopeWidth  - imgWidth ;
+                        targetY = envelopeHeight  - imgHeight ;
                         break;
                     case 3: // Move to bottom-right corner
-                        targetX = envelopeWidth / 2 - imgWidth / 2;
-                        targetY = envelopeHeight / 2 - imgHeight / 2;
+                        targetX = envelopeWidth  - imgWidth ;
+                        targetY = envelopeHeight  - imgHeight ;
                         break;
                     default:
                         targetX = 0;
