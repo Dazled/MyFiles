@@ -21,20 +21,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 switch(index) {
                     case 0: // Top-left corner
-                        randomX = -envelopeWidth / 2 - imgWidth - 20; // Left of envelope
-                        randomY = -envelopeHeight / 2 - imgHeight - 20; // Above envelope
+                        randomX = -imgWidth - 20; // Left of envelope
+                        randomY = -imgHeight - 20; // Above envelope
                         break;
                     case 1: // Top-right corner
-                        randomX = envelopeWidth / 2 + 20; // Right of envelope
-                        randomY = -envelopeHeight / 2 - imgHeight - 20; // Above envelope
+                        randomX = envelopeWidth + 20; // Right of envelope
+                        randomY = -imgHeight - 20; // Above envelope
                         break;
                     case 2: // Bottom-left corner
-                        randomX = -envelopeWidth / 2 - imgWidth - 20; // Left of envelope
-                        randomY = envelopeHeight / 2 + 20; // Below envelope
+                        randomX = -imgWidth - 20; // Left of envelope
+                        randomY = envelopeHeight + 20; // Below envelope
                         break;
                     case 3: // Bottom-right corner
-                        randomX = envelopeWidth / 2 + 20; // Right of envelope
-                        randomY = envelopeHeight / 2 + 20; // Below envelope
+                        randomX = envelopeWidth + 20; // Right of envelope
+                        randomY = envelopeHeight + 20; // Below envelope
                         break;
                     default:
                         randomX = 0;
