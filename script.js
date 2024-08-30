@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const dot = document.querySelector('.dot');
     const images = document.querySelectorAll('.images img');
 
+     images.forEach((img) => {
+        img.style.transform = 'translate(0, 0)'; // Start at the center
+    });
+
     dot.addEventListener('click', function () {
         envelope.classList.toggle('open');
         if (envelope.classList.contains('open')) {
@@ -21,20 +25,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 switch(index) {
                     case 0: // Move to top-left corner
-                        targetX = -envelopeWidth / 2 - imgWidth;
-                        targetY = -envelopeHeight / 2 - imgHeight;
+                        targetX = -envelopeWidth / 2 - imgWidth / 2;
+                        targetY = -envelopeHeight / 2 - imgHeight / 2;
                         break;
                     case 1: // Move to top-right corner
-                        targetX = envelopeWidth / 2;
-                        targetY = -envelopeHeight / 2 - imgHeight;
+                        targetX = envelopeWidth / 2 - imgWidth / 2;
+                        targetY = -envelopeHeight / 2 - imgHeight / 2;
                         break;
                     case 2: // Move to bottom-left corner
-                        targetX = -envelopeWidth / 2 - imgWidth;
-                        targetY = envelopeHeight / 2;
+                        targetX = -envelopeWidth / 2 - imgWidth / 2;
+                        targetY = envelopeHeight / 2 - imgHeight / 2;
                         break;
                     case 3: // Move to bottom-right corner
-                        targetX = envelopeWidth / 2;
-                        targetY = envelopeHeight / 2;
+                        targetX = envelopeWidth / 2 - imgWidth / 2;
+                        targetY = envelopeHeight / 2 - imgHeight / 2;
                         break;
                     default:
                         targetX = 0;
@@ -44,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const randomRotation = Math.random() * 360; // Random rotation angle
 
                 // Apply transformation to move images
-                img.style.transform = `translate(${targetX}px, ${targetY}px))`;
+                img.style.transform = `translate(${targetX}px, ${targetY}px) rotate(${randomRotation}deg)`;
             });
         }
     });
