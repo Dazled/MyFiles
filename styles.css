@@ -104,29 +104,8 @@ body {
     display: block;
 }
 
-.images {
-    position: absolute;
-    top: 50%;
-    left: 100%; /* Position images to the right of the envelope */
-    transform: translateY(-50%); /* Center vertically */
-    width: 300px; /* Width for image container */
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 1s ease; /* Longer transition for scatter effect */
-    z-index: 4; /* Ensure images are above the envelope */
-}
-
-.envelope.open .images {
-    opacity: 1;
-    transform: translateY(-50%) scale(1); /* Adjust scaling effect as needed */
-}
-
 .images img {
-    width: 80px; /* Adjust size as needed */
+    width: 120px; /* Adjust size as needed */
     height: auto;
     margin: 10px;
     position: absolute;
@@ -135,6 +114,7 @@ body {
 
 /* Scatter images when envelope is open */
 .envelope.open .images img {
+    /* Randomly position images around the envelope */
     transform: translate(
         calc(300px * (random() - 0.5)),
         calc(300px * (random() - 0.5))
