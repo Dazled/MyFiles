@@ -16,34 +16,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 const imgWidth = img.offsetWidth;
                 const imgHeight = img.offsetHeight;
 
-                // Position images outside the envelope, at corners or sides
-                let randomX, randomY;
+                // Calculate target positions for images to move outside the envelope
+                let targetX, targetY;
 
                 switch(index) {
-                    case 0: // Top-left corner
-                        randomX = -imgWidth - 20; // Left of envelope
-                        randomY = -imgHeight - 20; // Above envelope
+                    case 0: // Move to top-left corner
+                        targetX = -envelopeWidth / 2 - imgWidth;
+                        targetY = -envelopeHeight / 2 - imgHeight;
                         break;
-                    case 1: // Top-right corner
-                        randomX = envelopeWidth + 20; // Right of envelope
-                        randomY = -imgHeight - 20; // Above envelope
+                    case 1: // Move to top-right corner
+                        targetX = envelopeWidth / 2;
+                        targetY = -envelopeHeight / 2 - imgHeight;
                         break;
-                    case 2: // Bottom-left corner
-                        randomX = -imgWidth - 20; // Left of envelope
-                        randomY = envelopeHeight + 20; // Below envelope
+                    case 2: // Move to bottom-left corner
+                        targetX = -envelopeWidth / 2 - imgWidth;
+                        targetY = envelopeHeight / 2;
                         break;
-                    case 3: // Bottom-right corner
-                        randomX = envelopeWidth + 20; // Right of envelope
-                        randomY = envelopeHeight + 20; // Below envelope
+                    case 3: // Move to bottom-right corner
+                        targetX = envelopeWidth / 2;
+                        targetY = envelopeHeight / 2;
                         break;
                     default:
-                        randomX = 0;
-                        randomY = 0;
+                        targetX = 0;
+                        targetY = 0;
                 }
 
                 const randomRotation = Math.random() * 360; // Random rotation angle
 
-                img.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg)`;
+                // Apply transformation to move images
+                img.style.transform = `translate(${targetX}px, ${targetY}px) rotate(${randomRotation}deg)`;
             });
         }
     });
