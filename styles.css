@@ -115,15 +115,16 @@ body {
     width: 120px; /* Adjust size as needed */
     height: auto;
     position: absolute;
-    transition: transform 1s ease; /* Smooth transition for scatter effect */
+    opacity: 0;
+    transition: transform 1s ease,  opacity 1s ease; /* Smooth transition for scatter effect */
 }
 
 /* Hide images initially */
 .envelope .images img {
     transform: translate(0, 0);
-    opacity: 0;
 }
 
 .envelope.open .images img {
     opacity: 1;
+     transform: translate(0, 0);
 }
